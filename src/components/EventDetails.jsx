@@ -7,4 +7,9 @@ export default function EventDetails({ event }) {
         );
     }
 
+    return (
+        <div className="details">
+          
+        </div>
+    );
 }

@@ -8,11 +8,11 @@ export default function Sidebar({ events, onSelectEvent, selectedEventId, onAddE
     const filteredEvents = events.filter(event =>
         event.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
-     const handleAddEvent = (newEvent) => {
+    const handleAddEvent = (newEvent) => {
         onAddEvent(newEvent);
         setIsModalOpen(false);
     };
-     return (
+    return (
         <div className="sidebar">
             <div className="sidebar-header">
                 <h2>Events</h2>
@@ -30,6 +30,18 @@ export default function Sidebar({ events, onSelectEvent, selectedEventId, onAddE
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
+            <EventList
+                events={filteredEvents}
+                onSelectEvent={onSelectEvent}
+                selectedEventId={selectedEventId}
+            />
+            {isModalOpen && (
+                <AddEventModal
+                    onClose={() => setIsModalOpen(false)}
+                    onAddEvent={handleAddEvent}
+                />
+            )}
         </div>
     );
 }
+

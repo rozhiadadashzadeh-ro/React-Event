@@ -8,4 +8,8 @@ export default function Sidebar({ events, onSelectEvent, selectedEventId, onAddE
     const filteredEvents = events.filter(event =>
         event.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
+     const handleAddEvent = (newEvent) => {
+        onAddEvent(newEvent);
+        setIsModalOpen(false);
+    };
 }

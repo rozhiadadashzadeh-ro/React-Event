@@ -45,4 +45,8 @@ export default function App() {
   const [events, setEvents] = useState(getEventsFromStorage());
   const [selectedEventId, setSelectedEventId] = useState(null);
   
+  const handleSelectEvent = (eventId) => {
+    setSelectedEventId(eventId);
+  };
+  
 }
